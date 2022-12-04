@@ -21,10 +21,6 @@ with open('input.txt', 'r') as f:
         else:
             elf_calories[elf].append(int(line))
 
-        # Stop script after elf 3
-        if elf == 3:
-            break
-
 # Add all calories of food carried by each elf
 elf_total_calories = { elf: sum(calories) for elf, calories in elf_calories.items() }
 
@@ -34,3 +30,7 @@ elf_total_calories_sorted = { elf: calories for elf, calories in sorted(elf_tota
 # Print all elf numbers and their total calories of food carried
 for elf, calories in elf_total_calories_sorted.items():
     print(f'Elf {elf} has a total of {calories} calories')
+
+# Print the elf with the most calories of food carried
+print('\n')
+print(f'Elf {list(elf_total_calories_sorted.keys())[0]} has the most calories of food carried with {list(elf_total_calories_sorted.values())[0]} calories')
