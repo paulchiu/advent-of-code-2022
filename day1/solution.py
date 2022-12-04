@@ -28,6 +28,9 @@ with open('input.txt', 'r') as f:
 # Add all calories of food carried by each elf
 elf_total_calories = { elf: sum(calories) for elf, calories in elf_calories.items() }
 
+# Sort elf total calories by value
+elf_total_calories_sorted = { elf: calories for elf, calories in sorted(elf_total_calories.items(), key=lambda item: item[1], reverse=True) }
+
 # Print all elf numbers and their total calories of food carried
-for elf, calories in elf_total_calories.items():
+for elf, calories in elf_total_calories_sorted.items():
     print(f'Elf {elf} has a total of {calories} calories')
