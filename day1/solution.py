@@ -14,7 +14,6 @@ with open('input.txt', 'r') as f:
             # Add elf number to dictionary
             elf_calories[elf] = []
 
-
         # If line is a new line, increment elf number
         # otherwise add calories to elf number
         if line == '\n':
@@ -26,6 +25,9 @@ with open('input.txt', 'r') as f:
         if elf == 3:
             break
 
-# Print elf number and calories of food carried
-for elf in elf_calories:
-    print(f'Elf {elf} has {elf_calories[elf]} calories of food')
+# Add all calories of food carried by each elf
+elf_total_calories = { elf: sum(calories) for elf, calories in elf_calories.items() }
+
+# Print all elf numbers and their total calories of food carried
+for elf, calories in elf_total_calories.items():
+    print(f'Elf {elf} has a total of {calories} calories')
